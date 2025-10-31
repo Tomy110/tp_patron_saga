@@ -1,0 +1,10 @@
+/ms-catalogo/node_modules
+/ms-compras/node_modules
+/ms-inventario/node_modules
+/ms-orquestador/node_modules
+/ms-pagos/node_modules
+/ms-catalogo/package-lock.json
+/ms-compras/package-lock.json
+/ms-inventario/package-lock.json
+/ms-orquestador/package-lock.json
+/ms-pagos/package-lock.json
