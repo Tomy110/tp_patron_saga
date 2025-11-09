@@ -1,8 +1,10 @@
 import express, { Request,Response } from 'express';
 import comprasRouter from './routes/comprasRoute';
+import { PORT } from './config/config';
 
 const app = express();
-const port = process.env.PORT || 3002;
+const port = PORT;
+
 app.use(express.json());
 app.use('/api/v1/compra', comprasRouter);
 
