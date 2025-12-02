@@ -1,7 +1,6 @@
 
+import dotenv from "dotenv"
 
+dotenv.config()
 
-
-
-
-
+export const PORT = Number(process.env.COMPRAS_PORT) || 3001;
