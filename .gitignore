@@ -9,3 +9,10 @@
 /ms-orquestador/package-lock.json
 /ms-pagos/package-lock.json
 /ms-compras/build/
+/ms-catalogo/build/
+/ms-pagos/build/
+/ms-inventario/build/
+/ms-catalogo/.env
+/ms-pagos/.env
+/ms-compras/.env
+/ms-inventario/.env
