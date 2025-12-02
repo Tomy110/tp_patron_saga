@@ -1,15 +1,21 @@
-import express from 'express';
+import express, { Request,Response } from 'express';
 import pagosRoutes from './routes/pagosRoute'; 
 import { PORT } from './config/config';
 
-const SERVICE_NAME = 'MS-PAGOS';
 
 const app = express();
+const port = PORT;
+
 app.use(express.json());
 app.use('/api/pagos', pagosRoutes);
 
-
-app.listen(PORT, () => {
-    console.log(`${SERVICE_NAME} iniciado en puerto ${PORT}`);
-    console.log(`URL Base: http://localhost:${PORT}/api/pagos`);
+app.get('/', (req: Request, res: Response) => {
+    res.send('Servicio de compras esta corriendo');
 });
+
+
+app.listen(port, () => {
+    console.log(`Servicio de compras esta escuchando en el puerto ${port}`);
+});
+
+export default app;

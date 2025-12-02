@@ -13,14 +13,12 @@ export const pagosLogic = {
                 const newPago: Pago = {
                     id: String(nextId++),
                     pagoId: `PAG-${Date.now()}`, 
-                    status: 'COMPLETED',
+                    status: 'COMPLETADO',
                     ...data,
                 };
                 this.pagos.push(newPago);
-                console.log(`[MS-Pagos] Transacción exitosa: Pago ${newPago.pagoId} registrado.`);
                 resolve({ success: true, pago: newPago });
             } else {
-                console.warn(`[MS-Pagos] Transacción fallida simulada.`);
                 resolve({ success: false }); 
             }
         });
@@ -31,13 +29,11 @@ export const pagosLogic = {
             const pago = this.pagos.find(p => p.pagoId === pagoId); 
 
             if (pago) {
-                if (pago.status !== 'COMPENSATED') {
-                    pago.status = 'COMPENSATED';
-                    console.log(`[MS-Pagos] Compensación exitosa: Pago ${pagoId} marcado como REEMBOLSADO.`);
+                if (pago.status !== 'COMPENSADO') {
+                    pago.status = 'COMPENSADO';
                 }
                 resolve(pago); 
             } else {
-                console.warn(`[MS-Pagos] Compensación: Pago ${pagoId} no encontrado. Asumiendo éxito.`);
                 resolve(true); 
             }
         });

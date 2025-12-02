@@ -3,7 +3,7 @@ export interface Pago {
     pagoId: string; 
     userId: string;
     amount: number;
-    status: 'COMPLETED' | 'COMPENSATED';
+    status: 'COMPLETADO' | 'COMPENSADO';
 }
 
 export type NewPagoData = Omit<Pago, 'id' | 'pagoId' | 'status'>;
