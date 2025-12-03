@@ -14,7 +14,6 @@ export const actualizarStockController = async (req: Request, res: Response) => 
         return res.status(409).json({ message: resultado.message });
     }
     } catch (error) {
-    console.error('Error en inventarioController:', error);
     return res.status(500).json({ message: 'Error interno en ms-inventario' });
     }
 };
