@@ -16,3 +16,4 @@
 /ms-pagos/.env
 /ms-compras/.env
 /ms-inventario/.env
+/ms-orquestador/.env
