@@ -12,6 +12,7 @@
 /ms-catalogo/build/
 /ms-pagos/build/
 /ms-inventario/build/
+/ms-orquestador/build/
 /ms-catalogo/.env
 /ms-pagos/.env
 /ms-compras/.env
