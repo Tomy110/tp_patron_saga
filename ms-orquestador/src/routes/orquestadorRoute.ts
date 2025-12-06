@@ -3,6 +3,6 @@ import { OrquestadorController } from '../controllers/orquestadorController'
 
 const orquestadorRouter = express.Router()
 
-orquestadorRouter.get('/compra', OrquestadorController.crearCompra)
+orquestadorRouter.post('/compra', OrquestadorController.crearCompra)
 
 export default orquestadorRouter;
