@@ -19,3 +19,8 @@
 /ms-inventario/.env
 /ms-orquestador/.env
 /traefik/certs/
+/ms-catalogo/.dockerignore
+/ms-compras/.dockerignore       
+/ms-inventario/.dockerignore
+/ms-orquestador/.dockerignore
+/ms-pagos/.dockerignore
