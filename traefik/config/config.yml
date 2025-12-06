@@ -1,0 +1,19 @@
+
+http:
+  routers:
+    traefik:
+      rule: "Host(`traefik.patronSaga.localhost`)"
+      service: "api@internal"
+      tls:
+        domains:
+          - main: "patronSaga.localhost"
+            sans:
+              - "*.patronSaga.localhost"
+          - main: "patronSaga.local"
+            sans:
+              - "*.patronSaga.local"
+
+tls:
+  certificates:
+    - certFile: "/etc/certs/cert.pem"
+      keyFile: "/etc/certs/key.pem"

@@ -18,3 +18,4 @@
 /ms-compras/.env
 /ms-inventario/.env
 /ms-orquestador/.env
+/traefik/certs/

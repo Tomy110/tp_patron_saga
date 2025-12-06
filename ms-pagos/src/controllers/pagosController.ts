@@ -17,7 +17,6 @@ export class PagosController {
             }
     
         } catch (error) {
-            console.error('Error en controlador de pago:', error);
             res.status(500).json({ message: 'Error interno al procesar el pago', error });
         }
     }
@@ -35,7 +34,6 @@ export class PagosController {
                 });
             } 
         } catch (error) {
-            console.error('Error en controlador de compensacion:', error);
             res.status(500).json({ message: 'Error al compensar el pago', error });
         }  
     }
