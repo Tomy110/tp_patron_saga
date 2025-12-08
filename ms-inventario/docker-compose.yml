@@ -1,0 +1,25 @@
+services:
+  ms-inventario:
+    build:
+      context: ./ms-inventario
+      dockerfile: Dockerfile
+    image: ms-inventario:v1.0.0
+    container_name: ms-inventario
+    env_file: [".env"]
+    networks:
+      patronSaga-network:
+        aliases:
+          - inventario.localhost
+    environment:
+      - INVENTARIO_PORT=3003
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ms-inventario.rule=Host(`inventario.localhost`)"
+      - "traefik.http.routers.ms-inventario.tls=true"
+      - "traefik.http.services.ms-inventario.loadbalancer.server.port=3003"
+      - "traefik.docker.network=patronSaga-network"
+
+networks:
+  patronSaga-network:
+    name: patronSaga-network
+    external: true

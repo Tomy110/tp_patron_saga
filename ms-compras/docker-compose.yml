@@ -1,0 +1,25 @@
+services:
+    
+  ms-compras:
+      build:
+        context: ./ms-compras
+        dockerfile: Dockerfile
+      image: ms-compras:v1.0.0
+      container_name: ms-compras
+      env_file: [".env"]
+      networks:
+        patronSaga-network:
+          aliases:
+            - compras.localhost
+      environment:
+        - COMPRAS_PORT=3002
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.ms-compras.rule=Host(`compras.localhost`)"
+        - "traefik.http.routers.ms-compras.tls=true"
+        - "traefik.http.services.ms-compras.loadbalancer.server.port=3002"
+
+networks:
+  patronSaga-network:
+    name: patronSaga-network
+    external: true

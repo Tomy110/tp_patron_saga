@@ -1,0 +1,25 @@
+services:
+  ms-pagos:
+    build:
+      context: ./ms-pagos
+      dockerfile: Dockerfile
+    image: ms-pagos:v1.0.0
+    container_name: ms-pagos
+    env_file: [".env"]
+    networks:
+      patronSaga-network:
+        aliases:
+          - pagos.localhost
+    environment:
+      - PAGOS_PORT=3004
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ms-pagos.rule=Host(`pagos.localhost`)"
+      - "traefik.http.routers.ms-pagos.tls=true"
+      - "traefik.http.services.ms-pagos.loadbalancer.server.port=3004"
+      - "traefik.docker.network=patronSaga-network"
+
+networks:
+  patronSaga-network:
+    name: patronSaga-network
+    external: true
