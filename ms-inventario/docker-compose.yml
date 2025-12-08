@@ -1,8 +1,5 @@
 services:
   ms-inventario:
-    build:
-      context: ./ms-inventario
-      dockerfile: Dockerfile
     image: ms-inventario:v1.0.0
     container_name: ms-inventario
     env_file: [".env"]

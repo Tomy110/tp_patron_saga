@@ -1,9 +1,6 @@
 services:
     
   ms-compras:
-      build:
-        context: ./ms-compras
-        dockerfile: Dockerfile
       image: ms-compras:v1.0.0
       container_name: ms-compras
       env_file: [".env"]

@@ -1,17 +1,12 @@
 services:
   ms-orquestador:
-    build:
-      context: ./ms-orquestador
-      dockerfile: Dockerfile
     image: ms-orquestador:v1.0.0
-    container_name: ms-orquestador
     env_file: [".env"]
     networks:
       patronSaga-network:
         aliases:
           - orquestador.localhost
     environment:
-      - ORQUESTADOR_PORT=3000
       - CATALOGO_URL=http://ms-catalogo:3001
       - COMPRAS_URL=http://ms-compras:3002
       - INVENTARIO_URL=http://ms-inventario:3003

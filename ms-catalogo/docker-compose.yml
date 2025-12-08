@@ -1,8 +1,5 @@
 services:
   ms-catalogo:
-    build:
-      context: ./ms-catalogo
-      dockerfile: Dockerfile
     image: ms-catalogo:v1.0.0
     container_name: ms-catalogo
     env_file: [".env"]

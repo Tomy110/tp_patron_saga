@@ -1,8 +1,5 @@
 services:
   ms-pagos:
-    build:
-      context: ./ms-pagos
-      dockerfile: Dockerfile
     image: ms-pagos:v1.0.0
     container_name: ms-pagos
     env_file: [".env"]
