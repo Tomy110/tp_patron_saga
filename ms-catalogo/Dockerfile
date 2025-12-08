@@ -19,17 +19,10 @@ COPY --chown=nodeapp:nodeapp --from=builder /app/package*.json ./
 COPY --chown=nodeapp:nodeapp --from=builder /app/node_modules ./node_modules
 COPY --chown=nodeapp:nodeapp --from=builder /app/build ./build
 
+ENV NODE_ENV=production
+
 USER nodeapp
 
 EXPOSE 3001
 
 CMD ["node", "build/index.js"]
-USER nodeapp
-
-
-ENV NODE_ENV=production \
-    PORT=3000
-
-EXPOSE 3000
-
-CMD ["node", "dist/index.js"]
