@@ -4,6 +4,8 @@ services:
       image: ms-compras:1.0.0
       container_name: ms-compras
       env_file: [".env"]
+      ports:
+        - "3002:3002"
       networks:
         patronSaga-network:
           aliases:
@@ -12,9 +14,10 @@ services:
         - COMPRAS_PORT=3002
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.ms-compras.rule=Host(`compras.localhost`)"
-        - "traefik.http.routers.ms-compras.tls=true"
+        - "traefik.http.routers.ms-compras.rule=PathPrefix(`/api/v1/compra`)"
+        - "traefik.http.routers.ms-compras.entrypoints=http"
         - "traefik.http.services.ms-compras.loadbalancer.server.port=3002"
+        - "traefik.docker.network=patronSaga-network"
 
 networks:
   patronSaga-network:

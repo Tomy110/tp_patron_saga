@@ -7,7 +7,7 @@ const app = express();
 const port = PORT;
 
 app.use(express.json());
-app.use('/api/pago', pagosRoutes);
+app.use('/api/v1/pago', pagosRoutes);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Servicio de pagos esta corriendo');

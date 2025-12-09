@@ -3,6 +3,8 @@ services:
     image: ms-pagos:1.0.0
     container_name: ms-pagos
     env_file: [".env"]
+    ports:
+      - "3004:3004"
     networks:
       patronSaga-network:
         aliases:
@@ -11,8 +13,8 @@ services:
       - PAGOS_PORT=3004
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ms-pagos.rule=Host(`pagos.localhost`)"
-      - "traefik.http.routers.ms-pagos.tls=true"
+      - "traefik.http.routers.ms-pagos.rule=PathPrefix(`/api/v1/pago`)"
+      - "traefik.http.routers.ms-pagos.entrypoints=http"
       - "traefik.http.services.ms-pagos.loadbalancer.server.port=3004"
       - "traefik.docker.network=patronSaga-network"
 

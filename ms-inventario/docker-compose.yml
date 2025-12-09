@@ -3,6 +3,8 @@ services:
     image: ms-inventario:1.0.0
     container_name: ms-inventario
     env_file: [".env"]
+    ports:
+      - "3003:3003"
     networks:
       patronSaga-network:
         aliases:
@@ -11,8 +13,8 @@ services:
       - INVENTARIO_PORT=3003
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ms-inventario.rule=Host(`inventario.localhost`)"
-      - "traefik.http.routers.ms-inventario.tls=true"
+      - "traefik.http.routers.ms-inventario.rule=PathPrefix(`/api/v1/inventario`)"
+      - "traefik.http.routers.ms-inventario.entrypoints=http"
       - "traefik.http.services.ms-inventario.loadbalancer.server.port=3003"
       - "traefik.docker.network=patronSaga-network"
 

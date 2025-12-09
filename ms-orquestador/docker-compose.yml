@@ -1,21 +1,19 @@
 services:
   ms-orquestador:
     image: ms-orquestador:1.0.0
+    container_name: ms-orquestador
     env_file: [".env"]
     networks:
       patronSaga-network:
         aliases:
           - orquestador.localhost
-    environment:
-      - CATALOGO_URL=http://ms-catalogo:3001
-      - COMPRAS_URL=http://ms-compras:3002
-      - INVENTARIO_URL=http://ms-inventario:3003
-      - PAGOS_URL=http://ms-pagos:3004
+    ports:
+      - "3000:3000"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ms-orquestador.rule=Host(`orquestador.localhost`)"
-      - "traefik.http.routers.ms-orquestador.tls=true"
-      - "traefik.http.services.ms-orquestador.loadbalancer.server.port=3000"
+      - "traefik.http.routers.orquestador.rule=PathPrefix(`/api/v1/orquestador`)"
+      - "traefik.http.routers.orquestador.entrypoints=http"
+      - "traefik.http.services.orquestador.loadbalancer.server.port=3000"
       - "traefik.docker.network=patronSaga-network"
 
 networks:

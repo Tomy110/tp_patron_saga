@@ -4,7 +4,7 @@ import { OrquestadorService } from '../services/orquestadorService';
 export class OrquestadorController {
     static async crearCompra(req: Request, res: Response) {
         try {
-            const orquestador = await OrquestadorService.iniciarCompra(req.body);
+            const orquestador = await OrquestadorService.procesarCompra(req.body);
 
             if (orquestador.success) {
                 res.status(200).json(orquestador);

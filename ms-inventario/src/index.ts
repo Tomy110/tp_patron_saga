@@ -7,7 +7,7 @@ const port = PORT;
 
 app.use(express.json());
 
-app.use('/api/inventario', inventarioRoutes);
+app.use('/api/v1/inventario', inventarioRoutes);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Servicio de inventario esta corriendo');

@@ -24,4 +24,5 @@
 /ms-inventario/.dockerignore
 /ms-orquestador/.dockerignore
 /ms-pagos/.dockerignore
-prueba.ts
+prueba-directo.ts
+prueba-traefik.ts

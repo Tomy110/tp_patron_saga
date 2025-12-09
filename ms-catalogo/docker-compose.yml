@@ -1,7 +1,10 @@
 services:
   ms-catalogo:
     image: ms-catalogo:1.0.0
+    container_name: ms-catalogo
     env_file: [".env"]
+    ports:
+      - "3001:3001"
     networks:
       patronSaga-network:
         aliases:
@@ -10,8 +13,8 @@ services:
       - CATALOGO_PORT=3001
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ms-catalogo.rule=Host(`catalogo.localhost`)"
-      - "traefik.http.routers.ms-catalogo.tls=true"
+      - "traefik.http.routers.ms-catalogo.rule=PathPrefix(`/api/v1/catalogo`)"
+      - "traefik.http.routers.ms-catalogo.entrypoints=http"
       - "traefik.http.services.ms-catalogo.loadbalancer.server.port=3001"
       - "traefik.docker.network=patronSaga-network"
 
