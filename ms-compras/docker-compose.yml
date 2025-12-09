@@ -1,7 +1,7 @@
 services:
     
   ms-compras:
-      image: ms-compras:v1.0.0
+      image: ms-compras:1.0.0
       container_name: ms-compras
       env_file: [".env"]
       networks:

@@ -1,7 +1,6 @@
 services:
   ms-catalogo:
-    image: ms-catalogo:v1.0.0
-    container_name: ms-catalogo
+    image: ms-catalogo:1.0.0
     env_file: [".env"]
     networks:
       patronSaga-network:

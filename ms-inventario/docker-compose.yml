@@ -1,6 +1,6 @@
 services:
   ms-inventario:
-    image: ms-inventario:v1.0.0
+    image: ms-inventario:1.0.0
     container_name: ms-inventario
     env_file: [".env"]
     networks:

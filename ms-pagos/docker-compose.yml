@@ -1,6 +1,6 @@
 services:
   ms-pagos:
-    image: ms-pagos:v1.0.0
+    image: ms-pagos:1.0.0
     container_name: ms-pagos
     env_file: [".env"]
     networks:

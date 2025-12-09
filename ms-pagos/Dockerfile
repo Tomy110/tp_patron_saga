@@ -8,6 +8,8 @@ COPY package.json ./
 COPY tsconfig.json ./
 COPY src ./src
 
+RUN npm install
+
 RUN npm ci --unsafe-perm=false --no-audit --no-fund
 RUN npm run build 
 

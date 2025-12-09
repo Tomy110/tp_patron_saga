@@ -1,6 +1,6 @@
 services:
   ms-orquestador:
-    image: ms-orquestador:v1.0.0
+    image: ms-orquestador:1.0.0
     env_file: [".env"]
     networks:
       patronSaga-network:

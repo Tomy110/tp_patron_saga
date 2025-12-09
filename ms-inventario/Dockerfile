@@ -6,6 +6,9 @@ COPY package*.json tsconfig.json ./
 COPY package-lock.json ./
 COPY src ./src
 
+
+RUN npm install
+
 RUN npm ci --unsafe-perm=false --no-audit --no-fund
 RUN npm run build
 
